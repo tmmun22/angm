@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <script>
+        let fruits = ["lion","cat","dog","mouse","monkey","crocodile","giraffe","pig","chicken","goat","cow","troll","tiger","elephant","butterfly"];
+        let bodyAnimals = ["Голова", "Туловище", "Конечности"];
+        var i=0;
+        var rand;
+        var randBody;
+        var coin = 0;
+        var luscy = 0;
+        var luscyTrig = false;
+        var luscyTrig1 = false;
+        var luscyTrig2 = false;
+        
+
+        function me(){
+            document.getElementById('button7').style.visibility = "hidden";
+            document.getElementById('headAn').style.visibility = "hidden"
+            document.getElementById('bodyAn').style.visibility = "hidden"
+            document.getElementById('handAn').style.visibility = "hidden"
+            document.getElementById('start').textContent = "Рисуем"
+            rand = Math.floor(Math.random() * 12);
+            console.log(fruits[rand]);
+            document.getElementById('foo').textContent = fruits[rand]
+            randBody = Math.floor(Math.random() * 4);
+            setTimeout(() => { document.getElementById('start').textContent = "Стоп"
+            document.getElementById('button7').style.visibility = "visible";
+            document.getElementById('headAn').style.visibility = "visible"
+            document.getElementById('bodyAn').style.visibility = "visible"
+            document.getElementById('handAn').style.visibility = "visible";}, 8000);
+            console.log(randBody);
+            console.log(luscy);
+            if(randBody == 1){
+                randBody = 0;
+            }
+            if(luscy >= 5){
+                document.getElementById('vin1').textContent = "Везунчик"
+            }
+            if(luscy >= 10){
+                document.getElementById('vin2').textContent = "Предсказатель"
+            }
+            if(luscy >= 15){
+                document.getElementById('vin3').textContent = "Всевидящее Око"
+            }
+        }
+
+        function headAn(){
+            if(randBody == 0 ){
+                coin++;
+                luscy++;
+                document.getElementById('coincount').textContent = "Баллы " + coin;
+                document.getElementById('headAn').style.visibility = "hidden"
+                document.getElementById('bodyAn').style.visibility = "hidden"
+                document.getElementById('handAn').style.visibility = "hidden"
+            }
+            else{
+                luscy = 0;
+                document.getElementById('headAn').style.visibility = "hidden"
+                document.getElementById('bodyAn').style.visibility = "hidden"
+                document.getElementById('handAn').style.visibility = "hidden"   
+            }
+        }
+        function bodyAn(){
+            if(randBody == 2){
+                coin++;
+                luscy++;
+                document.getElementById('coincount').textContent = "Баллы " + coin;
+                document.getElementById('headAn').style.visibility = "hidden"
+                document.getElementById('bodyAn').style.visibility = "hidden"
+                document.getElementById('handAn').style.visibility = "hidden"
+            }
+            else{
+                luscy = 0;
+                document.getElementById('headAn').style.visibility = "hidden"
+                document.getElementById('bodyAn').style.visibility = "hidden"
+                document.getElementById('handAn').style.visibility = "hidden"   
+            }
+        }
+        function handAn(){
+            if(randBody == 3){
+                coin++;
+                luscy++;
+                document.getElementById('coincount').textContent = "Баллы " + coin;
+                document.getElementById('headAn').style.visibility = "hidden"
+                document.getElementById('bodyAn').style.visibility = "hidden"
+                document.getElementById('handAn').style.visibility = "hidden"
+            }
+            else{
+                luscy = 0;
+                document.getElementById('headAn').style.visibility = "hidden"
+                document.getElementById('bodyAn').style.visibility = "hidden"
+                document.getElementById('handAn').style.visibility = "hidden"   
+            }
+        }
+        function mincoin(){
+            coin--;
+            document.getElementById('coincount').textContent = "Баллы " + coin; 
+        }
+
+
+       
+        
+    </script>
+</head>
+<body>
+    <center>
+        <div id="coincount">Баллы</div>
+        <div id="rectangle"></div>
+        <div id="foo">Животное</div>
+        <div id="start">Тик Так</div>
+        <div id="rectangle"></div>
+        <a  onclick="me();" href="#" id="button7">Начинаем</a>
+        <br>
+        <br>
+        <br>
+        <button id="headAn" onclick="headAn();">Голова</button>
+        <br>
+        <br>
+        <button id="bodyAn" onclick="bodyAn();">Конечности</button>
+        <br>
+        <br>
+        <button id="handAn" onclick="handAn();">Тело</button>
+        <br>
+        <br>
+        <br>
+        <div id="rectangle"></div>
+        <div id="coincount">Достижения</div>
+        <div id="vin1">Пусто</div>
+        <div id="vin2">Пусто</div>
+        <div id="vin3">Пусто</div>
+        <div id="rectangle"></div>
+
+    </center>
+</body>
+</html>
